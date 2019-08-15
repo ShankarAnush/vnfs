@@ -1,0 +1,66 @@
+version: '3'
+
+services:
+        apache_img_1:
+                container_name: apache_server_1
+                build:
+                        context: ./apache/1
+                        dockerfile: Dockerfile
+                expose:
+                        - ${APACHE_EXPOSED_PORT}
+                networks:
+                        haproxy_net:
+                                ipv4_address: ${APACHE_1_IP}
+                tty: true
+
+        apache_img_2:
+                container_name: apache_server_2
+                build:
+                        context: ./apache/2
+                        dockerfile: Dockerfile
+                expose:
+                        - ${APACHE_EXPOSED_PORT}
+                networks:
+                        haproxy_net:
+                                ipv4_address: ${APACHE_2_IP}
+                tty: true
+
+        haproxy_img:
+                container_name: haproxy
+                build:
+                        context: ./haproxy
+                        dockerfile: Dockerfile
+                ports:
+                        - 80:80
+                expose: 
+                        - 80
+                networks:
+                        haproxy_net:
+                                ipv4_address: ${HA_PROXY_IP}
+                environment:
+                        - APACHE_1_IP=${APACHE_1_IP}
+                        - APACHE_2_IP=${APACHE_2_IP}
+                        - APACHE_EXPOSED_PORT=${APACHE_EXPOSED_PORT}
+                tty: true
+        
+#        client:
+#               container_name: haproxy_client
+#                build:
+#                        context: ./haproxy_client
+#                        dockerfile: Dockerfile
+#                environment:
+#                        HTTP_PROXY: http://${HA_PROXY_IP}:80
+#                networks:
+#                        haproxy_net:
+#                                ipv4_address: ${HA_PROXY_CLIENT_IP}
+#                tty: true
+
+networks:
+        haproxy_net:
+                driver: bridge
+                ipam:
+                        driver: default
+                        config:
+                                - subnet: ${NETWORK_SUBNET}
+
+
