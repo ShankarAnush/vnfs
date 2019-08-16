@@ -2,4 +2,5 @@
 HAProxy - A Virtualized network function for load balancing
 # Building image
 Step 1: Clone and download the following repository
-\b```https://github.com/ShankarAnush/vnfs.git```
+https://github.com/ShankarAnush/vnfs.git!
+[GitHub](http://github.com)
