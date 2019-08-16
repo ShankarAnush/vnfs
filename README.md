@@ -10,5 +10,5 @@ HAProxy - A Virtualized network function for load balancing
 4.  Check the images and the network driver built
 ```docker images``` & ```docker network ls```
 # Apache bench as traffic generator
-Benchmark the setup using apache bench
+Benchmark the setup using apache bench by sending 10000 requests, where 30 concurrent requests are sent at a time
 ```ab -n 10000 -c 30 http://172.18.0.4/```
