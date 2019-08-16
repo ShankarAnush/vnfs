@@ -1,7 +1,7 @@
 # vnfs
 HAProxy - A Virtualized network function for load balancing
 # Building docker image
-1.  Clone and download the following repository  
+1.  Clone and download the following repository 
 [```Clone & Download```](https://github.com/ShankarAnush/vnfs.git)
 2.  Validate the docker-compose.yml file and check the mapping using
 ```docker-compose config```
