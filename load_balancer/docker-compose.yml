@@ -38,7 +38,7 @@ services:
                         haproxy_net:
                                 ipv4_address: 172.18.0.4
 #                environment:
-#                       - APACHE_1_IP=${APACHE_1_IP}
+#                        - APACHE_1_IP=${APACHE_1_IP}
 #                        - APACHE_2_IP=${APACHE_2_IP}
 #                        - APACHE_EXPOSED_PORT=${APACHE_EXPOSED_PORT}
                 tty: true
