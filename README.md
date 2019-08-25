@@ -1,5 +1,5 @@
 # vnfs
-HAProxy - A Virtualized network function for load balancing
+HAProxy - A Virtualized network function for load balancing. HAProxy is an open source high availability solution which provides load balacing and proxying for TCP and HTTP based applications by spreading requests across multiple servers.
 # Building docker image
 1.  Clone and download the following repository 
 [```Clone & Download```](https://github.com/ShankarAnush/vnfs.git)
