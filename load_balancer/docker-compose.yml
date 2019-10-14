@@ -3,11 +3,12 @@ version: '3'
 services:
         apache_img_1:
                 container_name: apache_server_1
-                build:
-                        context: ./apache/1
-                        dockerfile: Dockerfile
-                expose:
-                        - 80
+                image: ishu06/srv1:apa
+#                build:
+#                        context: ./apache/1
+#                        dockerfile: Dockerfile
+#                expose:
+#                        - 80
                 networks:
                         haproxy_net:
                                 ipv4_address: 172.18.0.2
@@ -15,11 +16,12 @@ services:
 
         apache_img_2:
                 container_name: apache_server_2
-                build:
-                        context: ./apache/2
-                        dockerfile: Dockerfile
-                expose:
-                        - 80
+                image: ishu06/srv2:apa
+#                build:
+#                        context: ./apache/2
+#                        dockerfile: Dockerfile
+#                expose:
+#                        - 80
                 networks:
                         haproxy_net:
                                 ipv4_address: 172.18.0.3
@@ -32,7 +34,7 @@ services:
                         dockerfile: Dockerfile
                 ports:
                         - "80:80"
-                expose: 
+                expose:
                         - 80
                 networks:
                         haproxy_net:
@@ -42,8 +44,7 @@ services:
 #                        - APACHE_2_IP=${APACHE_2_IP}
 #                        - APACHE_EXPOSED_PORT=${APACHE_EXPOSED_PORT}
                 tty: true
-        
-        client:
+       client:
                 container_name: haproxy_client
                 build:
                         context: ./haproxy_client
@@ -62,5 +63,3 @@ networks:
                         driver: default
                         config:
                                 - subnet: 172.18.0.0/16
-
-
