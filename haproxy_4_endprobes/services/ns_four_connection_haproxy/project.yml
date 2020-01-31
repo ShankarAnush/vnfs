@@ -1,0 +1,17 @@
+descriptor_extension: yml
+version: '0.5'
+files:
+- path: ns_four_connection_haproxy.yml
+  type: application/vnd.5gtango.nsd
+  tags:
+  - eu.5gtango
+- path: vnfd_four_connection_haproxy.yml
+  type: application/vnd.5gtango.vnfd
+  tags:
+  - eu.5gtango
+package:
+  name: ns_four_connection_haproxy
+  version: '0.1'
+  maintainer: PG-Backflip
+  vendor: de.upb
+  description: Test service for benchmarking experiments.
